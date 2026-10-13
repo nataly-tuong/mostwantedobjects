@@ -3,9 +3,10 @@ import Poster from "./Poster.jsx";
 
 export default function Main() {
   const [suspect, setSuspect] = useState({
-    crime: "Colander",
-    reward: "https://m.media-amazon.com/images/I/71NTu8Ap87L.jpg",
-    imageUrl: "impersonating a much larger colander",
+    name: "Colander",
+    crime: "impersonating a much larger colander",
+    reward: "5,000",
+    imageUrl: "https://m.media-amazon.com/images/I/71NTu8Ap87L.jpg",
   });
 
   return (
@@ -45,7 +46,7 @@ export default function Main() {
           New suspect
         </button>
       </div>
-      <Poster />
+      <Poster suspect={suspect} />
     </main>
   );
 }
