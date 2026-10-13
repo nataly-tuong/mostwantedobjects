@@ -23,6 +23,7 @@ export default function Main() {
               type="text"
               className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
               placeholder="Will be generated..."
+              value={suspect?.name ?? ""}
               readOnly
             />
           </div>
@@ -35,6 +36,7 @@ export default function Main() {
               name="crime"
               type="text"
               className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
+              value={suspect?.crime ?? ""}
               placeholder="Will be generated..."
               readOnly
             />
