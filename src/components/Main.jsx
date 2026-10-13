@@ -1,6 +1,13 @@
+import { useState } from "react";
 import Poster from "./Poster.jsx";
 
 export default function Main() {
+  const [suspect, setSuspect] = useState({
+    crime: "",
+    reward: "",
+    imageUrl: "",
+  });
+
   return (
     <main className="px-6 flex flex-col gap-3">
       <div className="flex flex-col gap-3">
