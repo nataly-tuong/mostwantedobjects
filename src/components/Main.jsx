@@ -10,7 +10,7 @@ export default function Main() {
   });
 
   return (
-    <main className="px-6 flex flex-col gap-3">
+    <main className="bg-[radial-gradient(#0000001f_1px,transparent_1px)] bg-size-[16px_16px] px-6 flex flex-col gap-3">
       <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-5">
           <div className="flex flex-col flex-2">
@@ -21,7 +21,7 @@ export default function Main() {
               id="crime"
               name="crime"
               type="text"
-              className="border py-1 w-full rounded-lg px-2 text-sm border-gray-500/50"
+              className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
               placeholder="Will be generated..."
               readOnly
             />
@@ -34,7 +34,7 @@ export default function Main() {
               id="reward"
               name="reward"
               type="text"
-              className="border py-1 w-full rounded-lg px-2 text-sm border-gray-500/50"
+              className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
               placeholder="e.g., $5,000"
             />
           </div>
