@@ -5,7 +5,9 @@ export default function App() {
   return (
     <>
       <Header />
-      <Main />
+      <div className="min-h-screen bg-[radial-gradient(#0000001f_1px,transparent_1px)] bg-size-[16px_16px]">
+        <Main />
+      </div>
     </>
   );
 }

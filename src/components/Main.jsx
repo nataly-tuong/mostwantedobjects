@@ -10,7 +10,7 @@ export default function Main() {
   });
 
   return (
-    <main className="bg-[radial-gradient(#0000001f_1px,transparent_1px)] bg-size-[16px_16px] px-6 flex flex-col gap-3">
+    <main className=" px-6 flex flex-col gap-3">
       <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-5">
           <div className="flex flex-col flex-2">
