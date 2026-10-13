@@ -3,9 +3,9 @@ import Poster from "./Poster.jsx";
 
 export default function Main() {
   const [suspect, setSuspect] = useState({
-    crime: "",
-    reward: "",
-    imageUrl: "",
+    crime: "Colander",
+    reward: "https://m.media-amazon.com/images/I/71NTu8Ap87L.jpg",
+    imageUrl: "impersonating a much larger colander",
   });
 
   return (
