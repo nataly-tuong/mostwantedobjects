@@ -9,6 +9,9 @@ export default function Poster({ suspect }) {
         empty ? "border-black/20 bg-neutral-100" : "border-black/80 bg-beige"
       }`}
     >
+      <div className="absolute bg-dandelion/70 w-16 h-5 -top-3 left-1/2 -translate-x-1/2 rotate-3">
+        {" "}
+      </div>
       <h2
         className={`mb-5 rounded-md py-0.5 text-center font-chango text-2xl scale-y-140 ${
           empty ? "bg-neutral-300 text-neutral-400" : "bg-tomato text-white"
