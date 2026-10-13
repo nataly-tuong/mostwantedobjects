@@ -15,6 +15,19 @@ export default function Main() {
         <div className="flex flex-row gap-5">
           <div className="flex flex-col flex-2">
             <label htmlFor="crime" className="font-fredoka font-medium">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
+              placeholder="Will be generated..."
+              readOnly
+            />
+          </div>
+          <div className="flex flex-col flex-2">
+            <label htmlFor="crime" className="font-fredoka font-medium">
               Crime
             </label>
             <input
@@ -26,18 +39,18 @@ export default function Main() {
               readOnly
             />
           </div>
-          <div className="flex flex-col flex-1">
-            <label htmlFor="reward" className="font-fredoka font-medium">
-              Reward
-            </label>
-            <input
-              id="reward"
-              name="reward"
-              type="text"
-              className="border py-1 w-full  rounded-lg px-2 bg-white text-sm border-gray-500/50"
-              placeholder="e.g., $5,000"
-            />
-          </div>
+        </div>
+        <div className="flex flex-col flex-1">
+          <label htmlFor="reward" className="font-fredoka font-medium">
+            Reward
+          </label>
+          <input
+            id="reward"
+            name="reward"
+            type="text"
+            className="border py-1 w-full  rounded-lg px-2 bg-white text-sm border-gray-500/50"
+            placeholder="e.g., $5,000"
+          />
         </div>
         <button
           type="button"
