@@ -5,7 +5,7 @@ export default function Poster({ suspect }) {
 
   return (
     <div
-      className={`mx-auto mt-6 mb-4 w-60 -rotate-3 rounded-xl border-2 px-4 py-4 shadow-lg ${
+      className={`mx-auto mt-6  outline-2 outline-dashed outline-black/20 -outline-offset-6  mb-4 w-60 -rotate-3 rounded-xl border-2 px-4 py-4 shadow-lg ${
         empty ? "border-black/20 bg-neutral-100" : "border-black/80 bg-beige"
       }`}
     >

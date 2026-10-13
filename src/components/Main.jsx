@@ -34,7 +34,7 @@ export default function Main() {
               id="reward"
               name="reward"
               type="text"
-              className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
+              className="border py-1 w-full  rounded-lg px-2 bg-white text-sm border-gray-500/50"
               placeholder="e.g., $5,000"
             />
           </div>
