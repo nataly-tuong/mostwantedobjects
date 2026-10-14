@@ -42,19 +42,16 @@ export default function Main() {
   const [allImages, setAllImages] = useState([]);
 
   useEffect(() => {
-    const page = Math.floor(Math.random() * 100) + 1; // random page of results
+    const skip = Math.floor(Math.random() * 2000);
 
     fetch(
-      `https://api.artic.edu/api/v1/artworks?fields=id,title,image_id,is_public_domain&limit=100&page=${page}`,
+      `https://openaccess-api.clevelandart.org/api/artworks/?has_image=1&limit=100&skip=${skip}`,
     )
       .then((res) => res.json())
       .then((data) => {
         const objects = (data.data ?? [])
-          .filter((a) => a.image_id && a.title && a.title.length <= 25)
-          .map((a) => ({
-            item: a.title,
-            imageUrl: `https://lakeimagesweb.artic.edu/iiif/2/${a.image_id}/full/400,/0/default.jpg`,
-          }));
+          .filter((a) => a.images?.web?.url && a.title && a.title.length <= 25)
+          .map((a) => ({ item: a.title, imageUrl: a.images.web.url }));
         setAllImages(objects);
       });
   }, []);
