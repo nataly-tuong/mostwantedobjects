@@ -69,12 +69,21 @@ export default function Main() {
               placeholder="e.g., $5,000"
             />
           </div>
-          <button
-            type="submit"
-            className="cursor-pointer hover:opacity-80 rounded-xl font-fredoka text-white py-2 bg-linear-to-r from-tomato-dark to-tomato w-full"
-          >
-            Generate new item
-          </button>
+
+          <div className="flex gap-3">
+            <button
+              type="submit"
+              className="cursor-pointer hover:opacity-80 rounded-xl font-fredoka text-white py-1 bg-linear-to-r from-tomato-dark to-tomato w-full"
+            >
+              Generate new item
+            </button>
+            <button
+              type="button"
+              className="flex-3 hover:bg-gray-300/50 cursor-pointer px-3 hover:opacity-80 rounded-xl font-fredoka  border-2 outline-2 outline-dashed outline-black/20 -outline-offset-6  text-black py-2 bg-white"
+            >
+              Save
+            </button>
+          </div>
         </div>
       </form>
       <Poster suspect={suspect} />
