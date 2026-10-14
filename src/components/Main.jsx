@@ -22,7 +22,7 @@ export default function Main() {
   }
 
   return (
-    <main className=" px-6 flex flex-col gap-3">
+    <main className="px-6 flex flex-col gap-3">
       <form>
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-5">
@@ -71,7 +71,7 @@ export default function Main() {
           </div>
           <button
             type="submit"
-            className="cursor-pointer hover:opacity-80 rounded-2xl font-fredoka text-white py-1 bg-tomato w-full"
+            className="cursor-pointer hover:opacity-80 rounded-xl font-fredoka text-white py-2 bg-linear-to-r from-tomato-dark to-tomato w-full"
           >
             Generate new item
           </button>

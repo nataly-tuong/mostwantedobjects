@@ -14,7 +14,9 @@ export default function Poster({ suspect }) {
       </div>
       <h2
         className={`mb-5 rounded-md py-0.5 text-center font-chango text-2xl scale-y-140 ${
-          empty ? "bg-neutral-300 text-neutral-400" : "bg-tomato text-white"
+          empty
+            ? "bg-neutral-300 text-neutral-400"
+            : "bg-linear-to-r from-tomato-dark to-tomato  text-white"
         }`}
       >
         WANTED
