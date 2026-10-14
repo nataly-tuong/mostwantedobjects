@@ -1,11 +1,8 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Poster from "./Poster.jsx";
-import { toPng } from "html-to-image";
 import { generateCrime } from "../crimes.js";
 
 export default function Main() {
-  const posterRef = useRef(null);
-
   const [reward, setReward] = useState("");
 
   const [suspect, setSuspect] = useState({
@@ -55,22 +52,6 @@ export default function Main() {
         setAllImages(objects);
       });
   }, []);
-
-  async function downloadImage() {
-    if (!posterRef.current) return;
-    try {
-      const dataUrl = await toPng(posterRef.current, {
-        pixelRatio: 2,
-        cacheBust: true,
-      });
-      const link = document.createElement("a");
-      link.download = `wanted-${(suspect.item || "suspect").toLowerCase().replace(/\s+/g, "-")}.png`;
-      link.href = dataUrl;
-      link.click();
-    } catch (err) {
-      console.error("Could not save image", err);
-    }
-  }
 
   return (
     <main className="px-6 flex flex-col gap-3">
@@ -128,19 +109,10 @@ export default function Main() {
             >
               Generate new item
             </button>
-            <button
-              type="button"
-              onClick={downloadImage}
-              className="flex-3 hover:bg-gray-300/50 cursor-pointer px-3 hover:opacity-80 rounded-xl font-fredoka  border-2 outline-2 outline-dashed outline-black/20 -outline-offset-6  text-black py-2 bg-white"
-            >
-              Save
-            </button>
           </div>
         </div>
       </form>
-      <div ref={posterRef} className="p-8">
-        <Poster suspect={suspect} />
-      </div>
+      <Poster suspect={suspect} />
     </main>
   );
 }
