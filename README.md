@@ -10,3 +10,7 @@ what i learned
 - useeffect for fetching: load the object list once on mount, then just pick randomly from it
 - why caching the list beats re-fetching on every click
 - filtering and mapping api data into a shape my components can use
+
+built with
+
+react, tailwind, vite
