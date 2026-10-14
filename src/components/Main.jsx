@@ -18,6 +18,7 @@ export default function Main() {
       ...prevSuspect,
       reward: "$" + Number(digits).toLocaleString("en-US"),
     }));
+    return "$" + Number(digits).toLocaleString("en-US");
   }
 
   return (
