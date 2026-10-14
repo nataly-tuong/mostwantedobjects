@@ -34,7 +34,7 @@ export default function Main() {
                 id="item"
                 name="item"
                 type="text"
-                className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
+                className="border py-1 w-full rounded-lg px-2 bg-gray-300/50 text-sm border-gray-500/50"
                 placeholder="Will be generated..."
                 value={suspect?.item ?? ""}
                 readOnly
@@ -48,7 +48,7 @@ export default function Main() {
                 id="crime"
                 name="crime"
                 type="text"
-                className="border py-1 w-full rounded-lg px-2 bg-white text-sm border-gray-500/50"
+                className="border py-1 w-full rounded-lg px-2 bg-gray-300/50 text-sm border-gray-500/50"
                 value={suspect?.crime ?? ""}
                 placeholder="Will be generated..."
                 readOnly
