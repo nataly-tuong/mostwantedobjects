@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Poster from "./Poster.jsx";
 import { toPng } from "html-to-image";
+import { generateCrime } from "../crimes.js";
 
 export default function Main() {
   const posterRef = useRef(null);
@@ -24,6 +25,11 @@ export default function Main() {
     return "$" + Number(digits).toLocaleString("en-US");
   }
 
+  function getNewSuspect() {
+    const item = suspect.item;
+    setSuspect((prev) => ({ ...prev, item, crime: generateCrime(item) }));
+  }
+
   async function downloadImage() {
     if (!posterRef.current) return;
     try {
@@ -42,7 +48,7 @@ export default function Main() {
 
   return (
     <main className="px-6 flex flex-col gap-3">
-      <form>
+      <form action={getNewSuspect}>
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-5">
             <div className="flex flex-col flex-2">
