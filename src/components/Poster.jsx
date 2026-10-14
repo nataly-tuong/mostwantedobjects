@@ -1,7 +1,7 @@
 import { ImageIcon } from "@phosphor-icons/react";
 
 export default function Poster({ suspect }) {
-  const empty = !suspect;
+  const empty = !suspect.item;
 
   return (
     <div

@@ -9,10 +9,10 @@ export default function Main() {
   const [reward, setReward] = useState("");
 
   const [suspect, setSuspect] = useState({
-    item: "Colander",
-    crime: "impersonating a much larger colander",
-    reward: "$5,000",
-    imageUrl: "https://m.media-amazon.com/images/I/71NTu8Ap87L.jpg",
+    item: "",
+    crime: "",
+    reward: "",
+    imageUrl: "",
   });
 
   function formatReward(value) {
@@ -42,16 +42,19 @@ export default function Main() {
   const [allImages, setAllImages] = useState([]);
 
   useEffect(() => {
-    const skip = Math.floor(Math.random() * 2000);
+    const page = Math.floor(Math.random() * 100) + 1; // random page of results
 
     fetch(
-      `https://openaccess-api.clevelandart.org/api/artworks/?has_image=1&limit=100&skip=${skip}`,
+      `https://api.artic.edu/api/v1/artworks?fields=id,title,image_id,is_public_domain&limit=100&page=${page}`,
     )
       .then((res) => res.json())
       .then((data) => {
         const objects = (data.data ?? [])
-          .filter((a) => a.images?.web?.url && a.title && a.title.length <= 25)
-          .map((a) => ({ item: a.title, imageUrl: a.images.web.url }));
+          .filter((a) => a.image_id && a.title && a.title.length <= 25)
+          .map((a) => ({
+            item: a.title,
+            imageUrl: `https://lakeimagesweb.artic.edu/iiif/2/${a.image_id}/full/400,/0/default.jpg`,
+          }));
         setAllImages(objects);
       });
   }, []);
