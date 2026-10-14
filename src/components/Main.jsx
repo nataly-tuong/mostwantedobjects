@@ -11,8 +11,9 @@ export default function Main() {
     imageUrl: "https://m.media-amazon.com/images/I/71NTu8Ap87L.jpg",
   });
 
-  function addSuspect(formData) {
-    const newSuspect = formData.get("suspect");
+  function getNewSuspect(formData) {
+    const newReward = formData.get("reward");
+    setSuspect((prev) => ({ ...prev, reward: newReward }));
   }
 
   function formatReward(value) {
@@ -23,7 +24,7 @@ export default function Main() {
 
   return (
     <main className=" px-6 flex flex-col gap-3">
-      <form action={addSuspect}>
+      <form action={getNewSuspect}>
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-5">
             <div className="flex flex-col flex-2">
@@ -70,7 +71,7 @@ export default function Main() {
             />
           </div>
           <button
-            type="button"
+            type="submit"
             className="cursor-pointer hover:opacity-80 rounded-2xl font-fredoka text-white py-1 bg-tomato w-full"
           >
             New suspect
