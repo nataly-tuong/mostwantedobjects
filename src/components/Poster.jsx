@@ -51,7 +51,11 @@ export default function Poster({ suspect }) {
           </p>
           <div className="mx-auto mt-3 w-fit -rotate-2 rounded-full bg-dandelion px-5 py-1.5 text-center font-chango">
             <p className="text-[9px] tracking-widest">REWARD</p>
-            <p className="text-lg scale-y-125">${suspect.reward}</p>
+            <p className="text-lg scale-y-125">
+              {suspect.reward
+                ? "$" + Number(suspect.reward).toLocaleString("en-US")
+                : "$???"}
+            </p>
           </div>
         </>
       )}
