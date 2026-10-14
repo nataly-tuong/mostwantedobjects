@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Poster from "./Poster.jsx";
 import { toPng } from "html-to-image";
 import { generateCrime } from "../crimes.js";
@@ -26,9 +26,35 @@ export default function Main() {
   }
 
   function getNewSuspect() {
-    const item = suspect.item;
-    setSuspect((prev) => ({ ...prev, item, crime: generateCrime(item) }));
+    if (allImages.length === 0) return;
+
+    const randomNumber = Math.floor(Math.random() * allImages.length);
+    const newSuspect = allImages[randomNumber];
+
+    setSuspect((prevSuspect) => ({
+      ...prevSuspect,
+      item: newSuspect.item,
+      crime: generateCrime(newSuspect.item),
+      imageUrl: newSuspect.imageUrl,
+    }));
   }
+
+  const [allImages, setAllImages] = useState([]);
+
+  useEffect(() => {
+    const skip = Math.floor(Math.random() * 2000);
+
+    fetch(
+      `https://openaccess-api.clevelandart.org/api/artworks/?has_image=1&limit=100&skip=${skip}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const objects = (data.data ?? [])
+          .filter((a) => a.images?.web?.url && a.title && a.title.length <= 25)
+          .map((a) => ({ item: a.title, imageUrl: a.images.web.url }));
+        setAllImages(objects);
+      });
+  }, []);
 
   async function downloadImage() {
     if (!posterRef.current) return;
@@ -52,7 +78,7 @@ export default function Main() {
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-5">
             <div className="flex flex-col flex-2">
-              <label htmlFor="crime" className="font-fredoka font-medium">
+              <label htmlFor="item" className="font-fredoka font-medium">
                 Item
               </label>
               <input
