@@ -27,7 +27,7 @@ export default function Poster({ suspect }) {
       ) : (
         <img
           src={suspect.imageUrl}
-          alt={suspect.name}
+          alt={suspect.item}
           className="h-28 w-full rounded-xl bg-white object-contain"
         />
       )}
@@ -44,7 +44,7 @@ export default function Poster({ suspect }) {
       ) : (
         <>
           <h2 className="my-4 text-center font-chango text-xl uppercase scale-y-150">
-            {suspect.name}
+            {suspect.item}
           </h2>
           <p className="text-center font-fredoka text-xs leading-snug">
             for: {suspect.crime}
